@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {/* Link Boxicons CDN */}
-        <link rel="icon" type="image/png" href="/products/favicon.webp" />
+        <link rel="icon" href="/products/favicon.ico" />
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
