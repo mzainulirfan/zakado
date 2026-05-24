@@ -4,27 +4,47 @@ import { SITE_META } from "@/lib/siteData";
 
 export const metadata = {
   metadataBase: new URL(SITE_META.siteUrl),
-  title: "Zakado | Hampers & Kado Custom untuk Momen Spesial",
-  description:
-    "Zakado membantu Anda memesan hampers dan kado custom premium untuk wisuda, ulang tahun, pernikahan, dan corporate gifting dengan jalur order cepat via WhatsApp.",
+  title: {
+    default: SITE_META.defaultTitle,
+    template: SITE_META.titleTemplate,
+  },
+  description: SITE_META.seoDescription,
+  applicationName: SITE_META.siteName,
+  category: "shopping",
   keywords: [
-    "Zakado",
-    "hampers custom",
+    "zakado",
+    "hampers custom bandung",
+    "kado custom bandung",
     "kado wisuda",
     "gift box custom",
     "hampers ulang tahun",
     "corporate gift",
+    "hampers custom indonesia",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Zakado | Hampers & Kado Custom",
-    description:
-      "Pesan hampers custom premium untuk wisuda, ulang tahun, pernikahan, dan corporate gifting.",
+    title: SITE_META.seoTitle,
+    description: SITE_META.seoDescription,
     url: SITE_META.siteUrl,
-    siteName: SITE_META.brandName,
+    siteName: SITE_META.siteName,
+    locale: "id_ID",
     type: "website",
     images: [
       {
-        url: "/products/heroImage.webp",
+        url: SITE_META.ogImage,
         width: 1200,
         height: 1200,
         alt: "Hampers custom premium Zakado",
@@ -33,21 +53,58 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zakado | Hampers & Kado Custom",
-    description:
-      "Hadiah personal dengan packaging premium untuk momen spesial.",
-    images: ["/products/heroImage.webp"],
+    title: SITE_META.seoTitle,
+    description: SITE_META.seoDescription,
+    images: [SITE_META.ogImage],
   },
+  icons: {
+    icon: "/products/favicon.ico",
+    shortcut: "/products/favicon.ico",
+    apple: "/products/favicon.ico",
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      name: SITE_META.brandName,
+      alternateName: "Blueshop - Zakado",
+      description: SITE_META.seoDescription,
+      email: SITE_META.email,
+      areaServed: SITE_META.serviceArea,
+      image: `${SITE_META.siteUrl}${SITE_META.ogImage}`,
+      url: SITE_META.siteUrl,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: SITE_META.storeLocation,
+        addressCountry: "ID",
+      },
+    },
+    {
+      "@type": "WebSite",
+      name: SITE_META.siteName,
+      url: SITE_META.siteUrl,
+      description: SITE_META.seoDescription,
+      inLanguage: "id-ID",
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <head>
-        <link rel="icon" href="/products/favicon.ico" />
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
         />
       </head>
       <body>
