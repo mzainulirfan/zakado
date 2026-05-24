@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 84px;
 }
 
 body {
@@ -28,7 +29,41 @@ body {
 }
 
 section {
-  scroll-margin-top: 96px;
+  scroll-margin-top: 84px;
+}
+
+main > section:not(#hero) {
+  position: relative;
+  isolation: isolate;
+}
+
+main > section:not(#hero)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: -1;
+  width: min(1120px, calc(100% - 2rem));
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(211, 175, 95, 0.36),
+    transparent
+  );
+}
+
+main > section#produk::before {
+  top: -4rem;
+  width: min(960px, calc(100% - 2rem));
+  height: 9rem;
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(211, 175, 95, 0.18),
+    transparent 68%
+  );
 }
 
 .font-display {
