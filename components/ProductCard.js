@@ -16,6 +16,7 @@ export default function ProductCard({
           src={image}
           alt={title}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
           className="object-cover transition duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-x-0 top-0 flex flex-wrap gap-2 p-4">

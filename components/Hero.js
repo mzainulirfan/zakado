@@ -82,6 +82,7 @@ export default function Hero() {
                 alt="Hampers custom Zakado dengan packaging premium"
                 width={900}
                 height={1100}
+                sizes="(max-width: 1024px) 100vw, 42vw"
                 className="h-[540px] w-full object-cover"
                 priority
               />

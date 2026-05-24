@@ -1,6 +1,19 @@
 import "./globals.css";
 import ScrollTitleUpdater from "@/components/ScrollTitleUpdater";
 import { SITE_META } from "@/lib/siteData";
+import { Inter, Playfair_Display } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+});
 
 export const metadata = {
   metadataBase: new URL(SITE_META.siteUrl),
@@ -94,7 +107,7 @@ const structuredData = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id">
+    <html lang="id" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -107,7 +120,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body>
+      <body className="antialiased">
         <ScrollTitleUpdater />
         {children}
       </body>
