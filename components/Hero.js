@@ -17,25 +17,25 @@ export default function Hero() {
           className="object-cover"
         />
 
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_20%,rgba(211,175,95,0.2),transparent_26rem),linear-gradient(90deg,rgba(18,14,8,0.86)_0%,rgba(18,14,8,0.58)_43%,rgba(18,14,8,0.12)_100%),linear-gradient(180deg,rgba(18,14,8,0.16)_0%,rgba(18,14,8,0.68)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_36%,rgba(211,175,95,0.22),transparent_28rem),linear-gradient(90deg,rgba(18,14,8,0.48)_0%,rgba(18,14,8,0.72)_48%,rgba(18,14,8,0.48)_100%),linear-gradient(180deg,rgba(18,14,8,0.18)_0%,rgba(18,14,8,0.72)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#fbf8ef] to-transparent" />
 
-        <div className="relative flex min-h-[calc(100svh-73px)] items-end px-4 py-10 md:px-8 md:py-14 lg:px-10">
-          <div className="w-full">
-            <div className="max-w-3xl">
+        <div className="relative mx-auto flex min-h-[calc(100svh-73px)] w-full max-w-7xl items-center justify-center px-4 py-10 md:px-8 md:py-14 lg:px-10">
+          <div className="w-full text-center">
+            <div className="mx-auto max-w-3xl">
               <span className="inline-flex rounded-full border border-[#e3c371]/35 bg-[#17130c]/28 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#f6dd9b] backdrop-blur-sm">
                 {heroData.eyebrow}
               </span>
-              <h1 className="font-display mt-5 max-w-4xl text-4xl leading-[1.02] font-semibold text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="font-display mx-auto mt-5 max-w-4xl text-4xl leading-[1.02] font-semibold text-white sm:text-5xl md:text-6xl lg:text-7xl">
                 {heroData.title}
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-white/80 md:text-lg md:leading-8">
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/80 md:text-lg md:leading-8">
                 {heroData.description}
               </p>
             </div>
 
-            <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col items-center gap-6">
+              <div className="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
                 <a
                   href={createOrderMessage(
                     "Hero CTA",
@@ -56,7 +56,7 @@ export default function Hero() {
                 </a>
               </div>
 
-              <div className="flex flex-wrap items-center gap-5 text-sm text-white/75">
+              <div className="flex flex-wrap items-center justify-center gap-5 text-sm text-white/75">
                 <a
                   href={ORDER_LINKS.shopee}
                   target="_blank"

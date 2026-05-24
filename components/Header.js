@@ -33,9 +33,7 @@ export default function Header() {
           : "border-[rgba(111,79,19,0.1)] bg-[rgba(251,248,239,0.82)] backdrop-blur-md"
       }`}
     >
-      <div
-        className="flex w-full items-center justify-between px-4 py-3 md:px-8 lg:px-10"
-      >
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 md:px-8 lg:px-10">
         <a href="#hero" className="flex items-center gap-3" onClick={closeMenu}>
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(211,175,95,0.5)] bg-[linear-gradient(135deg,#17130c,#7a5816)] text-sm font-semibold text-[#f6dd9b] shadow-lg shadow-[#6f4f13]/10">
             Z
@@ -96,7 +94,7 @@ export default function Header() {
           menuOpen ? "max-h-96 pt-3" : "max-h-0"
         }`}
       >
-        <div className="border-t border-[var(--color-line)] bg-[rgba(251,248,239,0.96)] p-4 shadow-xl shadow-[#6f4f13]/10 backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl border-t border-[var(--color-line)] bg-[rgba(251,248,239,0.96)] p-4 shadow-xl shadow-[#6f4f13]/10 backdrop-blur-xl">
           <nav className="grid gap-2">
             {navItems.map((item) => (
               <a
