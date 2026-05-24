@@ -11,7 +11,13 @@ function easeInOutCubic(progress) {
 function getAnchorTarget(link) {
   const href = link.getAttribute("href");
 
-  if (!href || !href.includes("#") || href.startsWith("mailto:")) {
+  if (
+    !href ||
+    !href.includes("#") ||
+    href.startsWith("mailto:") ||
+    link.target === "_blank" ||
+    link.hasAttribute("download")
+  ) {
     return null;
   }
 
@@ -28,9 +34,19 @@ function getAnchorTarget(link) {
   return document.getElementById(decodeURIComponent(url.hash.slice(1)));
 }
 
+function getClickedLink(target) {
+  if (target instanceof Element) {
+    return target.closest("a[href*='#']");
+  }
+
+  return target?.parentElement?.closest("a[href*='#']") ?? null;
+}
+
 export default function SmoothScroll() {
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frameId = 0;
+    let restoreScrollBehavior = null;
 
     const handleClick = (event) => {
       if (
@@ -45,7 +61,7 @@ export default function SmoothScroll() {
         return;
       }
 
-      const link = event.target.closest("a[href*='#']");
+      const link = getClickedLink(event.target);
 
       if (!link) {
         return;
@@ -59,6 +75,15 @@ export default function SmoothScroll() {
 
       event.preventDefault();
 
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+        frameId = 0;
+      }
+
+      if (restoreScrollBehavior) {
+        restoreScrollBehavior();
+      }
+
       const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
       const targetTop =
         target === document.body
@@ -66,30 +91,51 @@ export default function SmoothScroll() {
           : target.getBoundingClientRect().top + window.scrollY - headerHeight - 18;
       const startTop = window.scrollY;
       const distance = targetTop - startTop;
-      const duration = Math.min(1000, Math.max(620, Math.abs(distance) * 0.55));
+      const duration = Math.min(1200, Math.max(720, Math.abs(distance) * 0.7));
       const startTime = performance.now();
+      const originalScrollBehavior = document.documentElement.style.scrollBehavior;
+
+      document.documentElement.style.scrollBehavior = "auto";
+      restoreScrollBehavior = () => {
+        document.documentElement.style.scrollBehavior = originalScrollBehavior;
+        restoreScrollBehavior = null;
+      };
 
       const animate = (currentTime) => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
 
-        window.scrollTo(0, startTop + distance * easeInOutCubic(progress));
+        window.scrollTo({
+          top: startTop + distance * easeInOutCubic(progress),
+          behavior: "auto",
+        });
 
         if (progress < 1) {
-          requestAnimationFrame(animate);
+          frameId = requestAnimationFrame(animate);
           return;
         }
 
+        restoreScrollBehavior?.();
+        frameId = 0;
+
         if (link.hash) {
-          history.pushState(null, "", link.hash);
+          history.replaceState(null, "", link.hash);
         }
       };
 
-      requestAnimationFrame(animate);
+      frameId = requestAnimationFrame(animate);
     };
 
-    document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
+    document.addEventListener("click", handleClick, true);
+
+    return () => {
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+
+      restoreScrollBehavior?.();
+      document.removeEventListener("click", handleClick, true);
+    };
   }, []);
 
   return null;
