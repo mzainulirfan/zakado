@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createWhatsAppLink } from "@/lib/orderLinks";
 import Icon from "@/components/Icon";
@@ -35,8 +36,14 @@ export default function Header() {
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 md:px-8 lg:px-10">
         <a href="#hero" className="flex items-center gap-3" onClick={closeMenu}>
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(211,175,95,0.5)] bg-[linear-gradient(135deg,#17130c,#7a5816)] text-sm font-semibold text-[#f6dd9b] shadow-lg shadow-[#6f4f13]/10">
-            Z
+          <div className="relative h-11 w-11 overflow-hidden rounded-full border border-[rgba(211,175,95,0.5)] bg-[#17130c] shadow-lg shadow-[#6f4f13]/10">
+            <Image
+              src="/products/favicon.webp"
+              alt="Logo Zakado"
+              fill
+              sizes="44px"
+              className="object-cover"
+            />
           </div>
           <div>
             <p className="font-display text-lg font-semibold text-[var(--color-text)]">
