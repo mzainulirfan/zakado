@@ -26,16 +26,18 @@ export default function Header() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 md:px-6">
+    <header
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        isScrolled
+          ? "border-[var(--color-line)] bg-[rgba(251,248,239,0.93)] shadow-lg shadow-[#6f4f13]/10 backdrop-blur-xl"
+          : "border-[rgba(111,79,19,0.1)] bg-[rgba(251,248,239,0.82)] backdrop-blur-md"
+      }`}
+    >
       <div
-        className={`section-shell flex items-center justify-between rounded-2xl border px-4 py-3 transition-all duration-300 md:px-5 ${
-          isScrolled
-            ? "border-[var(--color-line)] bg-[rgba(251,250,246,0.92)] shadow-lg shadow-black/5 backdrop-blur-xl"
-            : "border-[rgba(21,21,18,0.08)] bg-[rgba(251,250,246,0.76)] backdrop-blur-md"
-        }`}
+        className="flex w-full items-center justify-between px-4 py-3 md:px-8 lg:px-10"
       >
         <a href="#hero" className="flex items-center gap-3" onClick={closeMenu}>
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--color-line)] bg-white text-sm font-semibold text-[var(--color-primary)]">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(211,175,95,0.5)] bg-[linear-gradient(135deg,#17130c,#7a5816)] text-sm font-semibold text-[#f6dd9b] shadow-lg shadow-[#6f4f13]/10">
             Z
           </div>
           <div>
@@ -48,14 +50,15 @@ export default function Header() {
           </div>
         </a>
 
-        <nav className="hidden items-center gap-1 rounded-xl border border-[var(--color-line)] bg-white/70 px-2 py-2 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-lg px-4 py-2 text-sm font-medium text-[var(--color-text-soft)] transition hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-text)]"
+              className="group relative py-2 text-sm font-medium text-[var(--color-text-soft)] transition hover:text-[var(--color-text)]"
             >
               {item.label}
+              <span className="absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-[var(--color-accent)] transition group-hover:scale-x-100" />
             </a>
           ))}
         </nav>
@@ -76,7 +79,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-line)] bg-white/85 text-2xl text-[var(--color-primary)] md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line)] bg-[rgba(255,253,248,0.86)] text-2xl text-[var(--color-primary)] md:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label="Buka menu navigasi"
           aria-expanded={menuOpen}
@@ -89,11 +92,11 @@ export default function Header() {
       </div>
 
       <div
-        className={`section-shell overflow-hidden transition-all duration-300 md:hidden ${
+        className={`overflow-hidden transition-all duration-300 md:hidden ${
           menuOpen ? "max-h-96 pt-3" : "max-h-0"
         }`}
       >
-        <div className="rounded-2xl border border-[var(--color-line)] bg-[rgba(251,250,246,0.96)] p-4 shadow-xl shadow-black/5 backdrop-blur-xl">
+        <div className="border-t border-[var(--color-line)] bg-[rgba(251,248,239,0.96)] p-4 shadow-xl shadow-[#6f4f13]/10 backdrop-blur-xl">
           <nav className="grid gap-2">
             {navItems.map((item) => (
               <a

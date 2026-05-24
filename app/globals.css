@@ -6,23 +6,25 @@ html {
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, #fbfaf6 0%, #f7f4ed 48%, #fbfaf6 100%);
+  background:
+    radial-gradient(circle at top left, rgba(211, 175, 95, 0.18), transparent 34rem),
+    linear-gradient(180deg, #fbf8ef 0%, #f3ead4 48%, #fbf8ef 100%);
 }
 
 @theme {
   --font-sans: var(--font-inter), sans-serif;
   --font-serif: var(--font-playfair), serif;
 
-  --color-page: #fbfaf6;
-  --color-surface: #ffffff;
-  --color-surface-strong: #eff2ea;
-  --color-primary: #1f4d3a;
-  --color-primary-strong: #153427;
-  --color-accent: #9b7a33;
-  --color-text: #151512;
-  --color-text-soft: #66645d;
-  --color-line: rgba(21, 21, 18, 0.12);
-  --color-success: #1f4d3a;
+  --color-page: #fbf8ef;
+  --color-surface: #fffdf8;
+  --color-surface-strong: #f3ead4;
+  --color-primary: #b88a2a;
+  --color-primary-strong: #6f4f13;
+  --color-accent: #d3af5f;
+  --color-text: #17130c;
+  --color-text-soft: #675f50;
+  --color-line: rgba(111, 79, 19, 0.16);
+  --color-success: #706f2b;
 }
 
 section {
@@ -34,41 +36,41 @@ section {
 }
 
 .surface-card {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 253, 248, 0.86);
   border: 1px solid var(--color-line);
-  box-shadow: 0 18px 48px rgba(21, 21, 18, 0.06);
+  box-shadow: 0 18px 48px rgba(111, 79, 19, 0.08);
 }
 
 .cta-primary {
-  box-shadow: 0 14px 32px rgba(31, 77, 58, 0.2);
-  background: var(--color-primary);
+  box-shadow: 0 16px 34px rgba(184, 138, 42, 0.24);
+  background: linear-gradient(135deg, #7a5816 0%, #c89a3b 58%, #e3c371 100%);
   color: white;
 }
 
 .cta-primary:hover {
-  background: var(--color-primary-strong);
+  background: linear-gradient(135deg, #60420e 0%, #b8892f 58%, #d9b666 100%);
 }
 
 .cta-secondary {
   border: 1px solid var(--color-line);
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 253, 248, 0.92);
   color: var(--color-text);
 }
 
 .cta-secondary:hover {
-  border-color: rgba(183, 121, 31, 0.4);
+  border-color: rgba(184, 138, 42, 0.44);
   color: var(--color-primary);
 }
 
 .cta-choice {
   border: 1px solid var(--color-line);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 253, 248, 0.82);
   color: var(--color-text-soft);
 }
 
 .cta-choice:hover {
-  border-color: rgba(183, 121, 31, 0.32);
-  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(184, 138, 42, 0.36);
+  background: rgba(255, 253, 248, 0.96);
   color: var(--color-primary);
 }
 
