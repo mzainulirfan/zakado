@@ -19,7 +19,6 @@ export default function Hero() {
 
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_36%,rgba(233,197,111,0.3)_0%,rgba(184,138,42,0.12)_28%,transparent_58%),linear-gradient(90deg,rgba(13,9,4,0.72)_0%,rgba(18,14,8,0.58)_22%,rgba(18,14,8,0.42)_50%,rgba(18,14,8,0.58)_78%,rgba(13,9,4,0.72)_100%),linear-gradient(180deg,rgba(12,8,3,0.42)_0%,rgba(20,14,6,0.34)_38%,rgba(8,6,3,0.86)_100%)]" />
         <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[#17130c]/65 to-transparent" />
-        <div className="absolute inset-x-[8%] top-24 h-px bg-gradient-to-r from-transparent via-[#f6dd9b]/45 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-56 bg-[linear-gradient(180deg,transparent_0%,rgba(23,19,12,0.72)_42%,#fbf8ef_100%)]" />
 
         <div className="relative mx-auto flex min-h-[calc(100svh-73px)] w-full max-w-7xl items-center justify-center px-4 py-10 md:px-8 md:py-14 lg:px-10">
@@ -80,16 +79,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="absolute inset-x-0 bottom-8 flex justify-center">
-          <a
-            href="#produk"
-            className="group inline-flex h-12 w-8 items-start justify-center rounded-full border border-[#f6dd9b]/25 bg-[#17130c]/20 p-2 backdrop-blur-sm transition hover:border-[#f6dd9b]/45"
-            aria-label="Scroll ke bagian produk"
-          >
-            <span className="h-2 w-2 rounded-full bg-[#f6dd9b]/80 transition group-hover:translate-y-3" />
-          </a>
         </div>
       </div>
     </section>
