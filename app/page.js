@@ -10,7 +10,6 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollTopButton from "@/components/ScrollTopButton";
-import SmoothScroll from "@/components/SmoothScroll";
 
 export default function Home() {
   return (
@@ -25,7 +24,6 @@ export default function Home() {
       <Footer />
       <FloatingWhatsApp />
       <ScrollTopButton />
-      <SmoothScroll />
     </main>
   );
 }
