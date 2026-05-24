@@ -12,7 +12,7 @@ const navItems = [
   { href: "#kontak", label: "Kontak" },
 ];
 
-export default function Header() {
+export default function Header({ basePath = "" }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -25,6 +25,13 @@ export default function Header() {
   }, []);
 
   const closeMenu = () => setMenuOpen(false);
+  const withBasePath = (href) => {
+    if (!basePath) {
+      return href;
+    }
+
+    return href.startsWith("#") ? `${basePath}${href}` : `${basePath}/${href}`;
+  };
 
   return (
     <header
@@ -35,7 +42,11 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 md:px-8 lg:px-10">
-        <a href="#hero" className="flex items-center gap-3" onClick={closeMenu}>
+        <a
+          href={basePath || "#hero"}
+          className="flex items-center gap-3"
+          onClick={closeMenu}
+        >
           <div className="relative h-11 w-11 overflow-hidden rounded-lg border border-[rgba(211,175,95,0.5)] bg-[#17130c] shadow-lg shadow-[#6f4f13]/10">
             <Image
               src="/products/favicon.webp"
@@ -59,7 +70,7 @@ export default function Header() {
           {navItems.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={withBasePath(item.href)}
               className="group relative py-2 text-sm font-medium text-[var(--color-text-soft)] transition hover:text-[var(--color-text)]"
             >
               {item.label}
@@ -76,10 +87,10 @@ export default function Header() {
             target="_blank"
             rel="noreferrer"
             className="cta-primary inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition"
-        >
-          <Icon name="bxl-whatsapp" className="h-5 w-5" />
-          Order
-        </a>
+          >
+            <Icon name="bxl-whatsapp" className="h-5 w-5" />
+            Order
+          </a>
         </div>
 
         <button
@@ -106,7 +117,7 @@ export default function Header() {
             {navItems.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={withBasePath(item.href)}
                 className="rounded-xl px-4 py-3 text-sm font-medium text-[var(--color-text-soft)] transition hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-text)]"
                 onClick={closeMenu}
               >

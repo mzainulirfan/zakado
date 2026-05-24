@@ -1,7 +1,15 @@
 import { ORDER_LINKS } from "@/lib/orderLinks";
 import { SITE_META } from "@/lib/siteData";
 
-export default function Footer() {
+export default function Footer({ basePath = "" }) {
+  const withBasePath = (href) => {
+    if (!basePath) {
+      return href;
+    }
+
+    return href.startsWith("#") ? `${basePath}${href}` : `${basePath}/${href}`;
+  };
+
   return (
     <footer className="border-t border-[var(--color-line)] py-8">
       <div className="section-shell grid gap-8 text-sm text-[var(--color-text-soft)] lg:grid-cols-[1.1fr_0.9fr]">
@@ -19,13 +27,13 @@ export default function Footer() {
           <div>
             <p className="font-semibold text-[var(--color-text)]">Navigasi</p>
             <div className="mt-3 grid gap-2">
-              <a href="#produk" className="hover:text-[var(--color-primary)]">
+              <a href={withBasePath("#produk")} className="hover:text-[var(--color-primary)]">
                 Produk
               </a>
-              <a href="#faq" className="hover:text-[var(--color-primary)]">
+              <a href={withBasePath("#faq")} className="hover:text-[var(--color-primary)]">
                 FAQ
               </a>
-              <a href="#kontak" className="hover:text-[var(--color-primary)]">
+              <a href={withBasePath("#kontak")} className="hover:text-[var(--color-primary)]">
                 Kontak
               </a>
             </div>

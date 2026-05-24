@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { createOrderMessage } from "@/lib/cta";
 import { ORDER_LINKS } from "@/lib/orderLinks";
 import Icon from "@/components/Icon";
@@ -9,6 +10,7 @@ export default function ProductCard({
   description,
   price,
   tags,
+  slug,
 }) {
   return (
     <article className="surface-card group overflow-hidden rounded-xl">
@@ -43,18 +45,27 @@ export default function ProductCard({
           {description}
         </p>
         <div className="mt-6 space-y-4">
-          <a
-            href={createOrderMessage(
-              `Product Card - ${title}`,
-              `Halo Zakado, saya tertarik dengan ${title}.`
-            )}
-            target="_blank"
-            rel="noreferrer"
-            className="cta-primary inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition"
-          >
-            <Icon name="bxl-whatsapp" className="h-5 w-5" />
-            Tanya via WhatsApp
-          </a>
+          <div className="grid grid-cols-2 gap-3">
+            <Link
+              href={`/produk/${slug}`}
+              className="cta-secondary inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition"
+            >
+              Lihat detail
+              <Icon name="bx-right-arrow-alt" className="h-5 w-5" />
+            </Link>
+            <a
+              href={createOrderMessage(
+                `Product Card - ${title}`,
+                `Halo Zakado, saya tertarik dengan ${title}.`
+              )}
+              target="_blank"
+              rel="noreferrer"
+              className="cta-primary inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition"
+            >
+              <Icon name="bxl-whatsapp" className="h-5 w-5" />
+              Tanya via WhatsApp
+            </a>
+          </div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-[var(--color-text-soft)]">
             <a
               href={ORDER_LINKS.shopee}
