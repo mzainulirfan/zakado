@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Icon from "@/components/Icon";
 
 export default function ScrollTopButton() {
   const [visible, setVisible] = useState(false);
@@ -21,7 +22,7 @@ export default function ScrollTopButton() {
       }`}
       aria-label="Kembali ke atas"
     >
-      <i className="bx bx-chevron-up text-2xl"></i>
+      <Icon name="bx-chevron-up" className="h-6 w-6" />
     </button>
   );
 }

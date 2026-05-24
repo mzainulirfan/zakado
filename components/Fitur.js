@@ -1,4 +1,5 @@
 import { benefits, orderSteps, productCategories } from "@/lib/siteData";
+import Icon from "@/components/Icon";
 
 export default function Fitur() {
   return (
@@ -41,7 +42,7 @@ export default function Fitur() {
               >
                 <div className="flex gap-4">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--color-surface-strong)] text-3xl text-[var(--color-primary)]">
-                    <i className={`bx ${step.icon}`}></i>
+                    <Icon name={step.icon} className="h-8 w-8" />
                   </div>
                   <div>
                     <div className="text-sm font-semibold text-[var(--color-primary)]">
@@ -79,7 +80,7 @@ export default function Fitur() {
                 className="surface-card rounded-[28px] p-6"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl text-[var(--color-primary)]">
-                  <i className={`bx ${benefit.icon}`}></i>
+                  <Icon name={benefit.icon} className="h-8 w-8" />
                 </div>
                 <h3 className="mt-5 text-xl font-semibold text-[var(--color-text)]">
                   {benefit.title}

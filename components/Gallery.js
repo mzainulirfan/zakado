@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { createOrderMessage } from "@/lib/cta";
 import { galleryItems } from "@/lib/siteData";
+import Icon from "@/components/Icon";
 
 export default function Gallery() {
   return (
@@ -72,7 +73,7 @@ export default function Gallery() {
           rel="noreferrer"
           className="cta-primary inline-flex items-center gap-2 self-start rounded-full px-5 py-3 text-sm font-semibold transition md:self-auto"
         >
-          <i className="bx bxl-whatsapp text-lg"></i>
+          <Icon name="bxl-whatsapp" className="h-5 w-5" />
           Konsultasi Referensi
         </a>
       </div>

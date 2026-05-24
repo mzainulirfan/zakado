@@ -1,5 +1,6 @@
 import { ORDER_LINKS } from "@/lib/orderLinks";
 import { createOrderMessage } from "@/lib/cta";
+import Icon from "@/components/Icon";
 
 export default function CTASection() {
   return (
@@ -29,7 +30,7 @@ export default function CTASection() {
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-semibold text-[var(--color-primary-strong)] transition hover:bg-amber-50"
             >
-              <i className="bx bxl-whatsapp text-lg"></i>
+              <Icon name="bxl-whatsapp" className="h-5 w-5" />
               Chat Admin Sekarang
             </a>
             <div className="flex flex-wrap items-center gap-4 text-sm text-white/85">

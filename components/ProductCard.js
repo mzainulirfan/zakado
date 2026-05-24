@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { createOrderMessage } from "@/lib/cta";
 import { ORDER_LINKS } from "@/lib/orderLinks";
+import Icon from "@/components/Icon";
 
 export default function ProductCard({
   image,
@@ -51,7 +52,7 @@ export default function ProductCard({
             rel="noreferrer"
             className="cta-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition"
           >
-            <i className="bx bxl-whatsapp text-lg"></i>
+            <Icon name="bxl-whatsapp" className="h-5 w-5" />
             Tanya via WhatsApp
           </a>
           <div className="flex flex-wrap items-center gap-4 text-sm text-[var(--color-text-soft)]">

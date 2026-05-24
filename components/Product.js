@@ -1,6 +1,7 @@
 import ProductCard from "./ProductCard";
 import { ORDER_LINKS } from "@/lib/orderLinks";
 import { products } from "@/lib/siteData";
+import Icon from "@/components/Icon";
 
 export default function Product() {
   return (
@@ -24,7 +25,7 @@ export default function Product() {
           rel="noreferrer"
           className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)]"
         >
-          Lihat toko di Shopee <i className="bx bx-right-arrow-alt text-xl"></i>
+          Lihat toko di Shopee <Icon name="bx-right-arrow-alt" className="h-5 w-5" />
         </a>
       </div>
 

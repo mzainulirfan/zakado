@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createWhatsAppLink } from "@/lib/orderLinks";
+import Icon from "@/components/Icon";
 
 const navItems = [
   { href: "#produk", label: "Produk" },
@@ -67,10 +68,10 @@ export default function Header() {
             target="_blank"
             rel="noreferrer"
             className="cta-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition"
-          >
-            <i className="bx bxl-whatsapp text-lg"></i>
-            Order
-          </a>
+        >
+          <Icon name="bxl-whatsapp" className="h-5 w-5" />
+          Order
+        </a>
         </div>
 
         <button
@@ -80,7 +81,10 @@ export default function Header() {
           aria-label="Buka menu navigasi"
           aria-expanded={menuOpen}
         >
-          <i className={menuOpen ? "bx bx-x" : "bx bx-menu"}></i>
+          <Icon
+            name={menuOpen ? "bx-x" : "bx-menu"}
+            className="h-6 w-6"
+          />
         </button>
       </div>
 
@@ -111,7 +115,7 @@ export default function Header() {
             className="cta-primary mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition"
             onClick={closeMenu}
           >
-            <i className="bx bxl-whatsapp text-lg"></i>
+            <Icon name="bxl-whatsapp" className="h-5 w-5" />
             Order via WhatsApp
           </a>
         </div>

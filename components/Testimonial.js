@@ -1,20 +1,17 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import Icon from "@/components/Icon";
 import { testimonials } from "@/lib/siteData";
-
-import "swiper/css";
-import "swiper/css/pagination";
 
 function renderStars(stars) {
   return (
     <div className="flex gap-1 text-lg text-amber-500">
       {Array.from({ length: 5 }).map((_, index) => (
-        <i
+        <Icon
           key={`${stars}-${index}`}
-          className={index < stars ? "bx bxs-star" : "bx bx-star"}
-        ></i>
+          name={index < stars ? "bxs-star" : "bx-star"}
+          className="h-4 w-4"
+        />
       ))}
     </div>
   );
@@ -33,41 +30,32 @@ export default function Testimonial() {
         </h2>
       </div>
 
-      <Swiper
-        modules={[Pagination]}
-        pagination={{ clickable: true }}
-        spaceBetween={20}
-        slidesPerView={1}
-        breakpoints={{
-          768: { slidesPerView: 2 },
-          1100: { slidesPerView: 3 },
-        }}
-        className="mt-10 !pb-12"
-      >
+      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {testimonials.map((item) => (
-          <SwiperSlide key={item.name}>
-            <article className="surface-card h-full rounded-[30px] p-7">
-              <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary)] text-lg font-semibold text-white">
-                  {item.name.slice(0, 1)}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[var(--color-text)]">
-                    {item.name}
-                  </h3>
-                  <p className="text-sm text-[var(--color-text-soft)]">
-                    {`${item.city} · ${item.role}`}
-                  </p>
-                </div>
+          <article
+            key={item.name}
+            className="surface-card rounded-[30px] p-7"
+          >
+            <div className="flex items-center gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary)] text-lg font-semibold text-white">
+                {item.name.slice(0, 1)}
               </div>
-              <div className="mt-5">{renderStars(item.stars)}</div>
-              <p className="mt-5 text-base leading-8 text-[var(--color-text-soft)]">
-                "{item.text}"
-              </p>
-            </article>
-          </SwiperSlide>
+              <div>
+                <h3 className="text-lg font-semibold text-[var(--color-text)]">
+                  {item.name}
+                </h3>
+                <p className="text-sm text-[var(--color-text-soft)]">
+                  {`${item.city} · ${item.role}`}
+                </p>
+              </div>
+            </div>
+            <div className="mt-5">{renderStars(item.stars)}</div>
+            <p className="mt-5 text-base leading-8 text-[var(--color-text-soft)]">
+              "{item.text}"
+            </p>
+          </article>
         ))}
-      </Swiper>
+      </div>
     </section>
   );
 }

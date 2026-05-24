@@ -1,5 +1,6 @@
 import { ORDER_LINKS, createWhatsAppLink } from "@/lib/orderLinks";
 import { SITE_META } from "@/lib/siteData";
+import Icon from "@/components/Icon";
 
 export default function About() {
   return (
@@ -40,7 +41,7 @@ export default function About() {
               rel="noreferrer"
               className="cta-primary mt-6 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition"
             >
-              <i className="bx bxl-whatsapp text-lg"></i>
+              <Icon name="bxl-whatsapp" className="h-5 w-5" />
               Mulai Konsultasi
             </a>
             <div className="mt-4 flex flex-wrap gap-4 text-sm text-[var(--color-text-soft)]">

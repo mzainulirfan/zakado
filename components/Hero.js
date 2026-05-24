@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ORDER_LINKS } from "@/lib/orderLinks";
 import { createOrderMessage } from "@/lib/cta";
 import { heroData } from "@/lib/siteData";
+import Icon from "@/components/Icon";
 
 export default function Hero() {
   return (
@@ -29,7 +30,7 @@ export default function Hero() {
                 rel="noreferrer"
                 className="cta-primary inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-semibold transition"
               >
-                <i className="bx bxl-whatsapp text-xl"></i>
+                <Icon name="bxl-whatsapp" className="h-6 w-6" />
                 Pesan via WhatsApp
               </a>
               <a
@@ -46,7 +47,7 @@ export default function Hero() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 transition hover:text-[var(--color-primary)]"
               >
-                <i className="bx bx-store-alt text-lg"></i>
+                <Icon name="bx-store-alt" className="h-5 w-5" />
                 Shopee
               </a>
               <a
@@ -55,7 +56,7 @@ export default function Hero() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 transition hover:text-[var(--color-primary)]"
               >
-                <i className="bx bxl-tiktok text-lg"></i>
+                <Icon name="bxl-tiktok" className="h-5 w-5" />
                 TikTok Shop
               </a>
             </div>
@@ -65,7 +66,7 @@ export default function Hero() {
             {heroData.highlights.slice(0, 2).map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-surface-strong)] text-[var(--color-success)]">
-                  <i className="bx bx-check"></i>
+                  <Icon name="bx-check" className="h-4 w-4" />
                 </span>
                 <span>{item}</span>
               </li>
