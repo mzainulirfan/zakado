@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section id="kontak" className="section-shell py-20">
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="surface-card rounded-[32px] p-8">
+        <div className="surface-card rounded-xl p-8">
           <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
             Tentang Zakado
           </span>
@@ -22,7 +22,7 @@ export default function About() {
         </div>
 
         <div className="grid gap-6">
-          <div className="surface-card rounded-[32px] p-8">
+          <div className="surface-card rounded-xl p-8">
             <h3 className="text-2xl font-semibold text-[var(--color-text)]">
               Hubungi kami
             </h3>
@@ -39,7 +39,7 @@ export default function About() {
               )}
               target="_blank"
               rel="noreferrer"
-              className="cta-primary mt-6 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition"
+              className="cta-primary mt-6 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition"
             >
               <Icon name="bxl-whatsapp" className="h-5 w-5" />
               Mulai Konsultasi
@@ -64,8 +64,8 @@ export default function About() {
             </div>
           </div>
 
-          <div className="surface-card overflow-hidden rounded-[32px] p-3">
-            <div className="rounded-[24px] border border-[var(--color-line)] bg-white p-4">
+          <div className="surface-card overflow-hidden rounded-xl p-3">
+            <div className="rounded-lg border border-[var(--color-line)] bg-white p-4">
               <div className="mb-4">
                 <h3 className="text-lg font-semibold text-[var(--color-text)]">
                   Blueshop - Zakado
@@ -80,7 +80,7 @@ export default function About() {
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
-                className="h-72 w-full rounded-[20px] border-0"
+                className="h-72 w-full rounded-lg border-0"
               />
             </div>
           </div>

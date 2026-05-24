@@ -5,7 +5,7 @@ import { testimonials } from "@/lib/siteData";
 
 function renderStars(stars) {
   return (
-    <div className="flex gap-1 text-lg text-amber-500">
+    <div className="flex gap-1 text-[var(--color-accent)]">
       {Array.from({ length: 5 }).map((_, index) => (
         <Icon
           key={`${stars}-${index}`}
@@ -21,7 +21,7 @@ export default function Testimonial() {
   return (
     <section id="testimoni" className="section-shell py-20">
       <div className="mx-auto max-w-2xl text-center">
-        <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
+        <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
           Bukti kepercayaan
         </span>
         <h2 className="font-display mt-3 text-4xl font-semibold text-[var(--color-text)]">
@@ -32,12 +32,9 @@ export default function Testimonial() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {testimonials.map((item) => (
-          <article
-            key={item.name}
-            className="surface-card rounded-[30px] p-7"
-          >
+          <article key={item.name} className="surface-card rounded-xl p-7">
             <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary)] text-lg font-semibold text-white">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--color-primary)] text-lg font-semibold text-white">
                 {item.name.slice(0, 1)}
               </div>
               <div>

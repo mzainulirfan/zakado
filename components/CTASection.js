@@ -5,7 +5,7 @@ import Icon from "@/components/Icon";
 export default function CTASection() {
   return (
     <section className="section-shell pb-20 pt-4">
-      <div className="overflow-hidden rounded-[36px] bg-[linear-gradient(135deg,#8f4e2d_0%,#b7791f_55%,#d79b44_100%)] px-6 py-10 text-white shadow-2xl shadow-amber-200/70 md:px-10 md:py-12">
+      <div className="overflow-hidden rounded-2xl bg-[linear-gradient(135deg,#13221b_0%,#1f4d3a_70%,#9b7a33_100%)] px-6 py-10 text-white shadow-2xl shadow-black/10 md:px-10 md:py-12">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/80">
@@ -28,7 +28,7 @@ export default function CTASection() {
               )}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-semibold text-[var(--color-primary-strong)] transition hover:bg-amber-50"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 text-sm font-semibold text-[var(--color-primary-strong)] transition hover:bg-[#f4f3ee]"
             >
               <Icon name="bxl-whatsapp" className="h-5 w-5" />
               Chat Admin Sekarang

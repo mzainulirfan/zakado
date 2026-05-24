@@ -11,7 +11,7 @@ export default function ProductCard({
   tags,
 }) {
   return (
-    <article className="surface-card group overflow-hidden rounded-[30px]">
+    <article className="surface-card group overflow-hidden rounded-xl">
       <div className="relative h-80 overflow-hidden">
         <Image
           src={image}
@@ -24,7 +24,7 @@ export default function ProductCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-white/88 px-3 py-1 text-xs font-semibold text-[var(--color-accent)] backdrop-blur-sm"
+              className="rounded-md bg-white/88 px-3 py-1 text-xs font-semibold text-[var(--color-accent)] backdrop-blur-sm"
             >
               {tag}
             </span>
@@ -50,7 +50,7 @@ export default function ProductCard({
             )}
             target="_blank"
             rel="noreferrer"
-            className="cta-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition"
+            className="cta-primary inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition"
           >
             <Icon name="bxl-whatsapp" className="h-5 w-5" />
             Tanya via WhatsApp

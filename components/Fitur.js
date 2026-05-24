@@ -17,7 +17,7 @@ export default function Fitur() {
               Zakado dirancang untuk pengguna yang ingin hasil custom yang
               berkesan tanpa harus ribet mengatur semuanya sendiri.
             </p>
-            <div className="surface-card mt-8 rounded-[28px] p-6">
+            <div className="surface-card mt-8 rounded-xl p-6">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)]">
                 Cocok untuk
               </p>
@@ -25,7 +25,7 @@ export default function Fitur() {
                 {productCategories.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full bg-white px-4 py-2 text-[var(--color-text-soft)]"
+                    className="rounded-lg bg-white px-4 py-2 text-[var(--color-text-soft)]"
                   >
                     {item}
                   </span>
@@ -38,10 +38,10 @@ export default function Fitur() {
             {orderSteps.map((step, index) => (
               <article
                 key={step.title}
-                className="surface-card rounded-[28px] p-6 transition hover:-translate-y-1"
+                className="surface-card rounded-xl p-6 transition hover:-translate-y-1"
               >
                 <div className="flex gap-4">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--color-surface-strong)] text-3xl text-[var(--color-primary)]">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[var(--color-surface-strong)] text-3xl text-[var(--color-primary)]">
                     <Icon name={step.icon} className="h-8 w-8" />
                   </div>
                   <div>
@@ -62,7 +62,7 @@ export default function Fitur() {
         </div>
       </section>
 
-      <section id="keunggulan" className="bg-[rgba(248,236,218,0.45)] py-20">
+      <section id="keunggulan" className="border-y border-[var(--color-line)] bg-white/45 py-20">
         <div className="section-shell">
           <div className="max-w-2xl">
             <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
@@ -77,9 +77,9 @@ export default function Fitur() {
             {benefits.map((benefit) => (
               <article
                 key={benefit.title}
-                className="surface-card rounded-[28px] p-6"
+                className="surface-card rounded-xl p-6"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl text-[var(--color-primary)]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--color-surface-strong)] text-3xl text-[var(--color-primary)]">
                   <Icon name={benefit.icon} className="h-8 w-8" />
                 </div>
                 <h3 className="mt-5 text-xl font-semibold text-[var(--color-text)]">

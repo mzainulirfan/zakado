@@ -28,14 +28,14 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 md:px-6">
       <div
-        className={`section-shell flex items-center justify-between rounded-full border px-4 py-3 transition-all duration-300 md:px-5 ${
+        className={`section-shell flex items-center justify-between rounded-2xl border px-4 py-3 transition-all duration-300 md:px-5 ${
           isScrolled
-            ? "border-[var(--color-line)] bg-[rgba(255,253,248,0.92)] shadow-lg shadow-amber-100/60 backdrop-blur-xl"
-            : "border-[rgba(120,87,41,0.08)] bg-[rgba(255,253,248,0.72)] backdrop-blur-md"
+            ? "border-[var(--color-line)] bg-[rgba(251,250,246,0.92)] shadow-lg shadow-black/5 backdrop-blur-xl"
+            : "border-[rgba(21,21,18,0.08)] bg-[rgba(251,250,246,0.76)] backdrop-blur-md"
         }`}
       >
         <a href="#hero" className="flex items-center gap-3" onClick={closeMenu}>
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] bg-white text-sm font-semibold text-[var(--color-primary)]">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--color-line)] bg-white text-sm font-semibold text-[var(--color-primary)]">
             Z
           </div>
           <div>
@@ -48,12 +48,12 @@ export default function Header() {
           </div>
         </a>
 
-        <nav className="hidden items-center gap-2 rounded-full border border-[var(--color-line)] bg-white/70 px-2 py-2 md:flex">
+        <nav className="hidden items-center gap-1 rounded-xl border border-[var(--color-line)] bg-white/70 px-2 py-2 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-[var(--color-text-soft)] transition hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-text)]"
+              className="rounded-lg px-4 py-2 text-sm font-medium text-[var(--color-text-soft)] transition hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-text)]"
             >
               {item.label}
             </a>
@@ -67,7 +67,7 @@ export default function Header() {
             )}
             target="_blank"
             rel="noreferrer"
-            className="cta-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition"
+            className="cta-primary inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition"
         >
           <Icon name="bxl-whatsapp" className="h-5 w-5" />
           Order
@@ -76,7 +76,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line)] bg-white/85 text-2xl text-[var(--color-primary)] md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-line)] bg-white/85 text-2xl text-[var(--color-primary)] md:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label="Buka menu navigasi"
           aria-expanded={menuOpen}
@@ -93,13 +93,13 @@ export default function Header() {
           menuOpen ? "max-h-96 pt-3" : "max-h-0"
         }`}
       >
-        <div className="rounded-[28px] border border-[var(--color-line)] bg-[rgba(255,253,248,0.96)] p-4 shadow-xl shadow-amber-100/60 backdrop-blur-xl">
+        <div className="rounded-2xl border border-[var(--color-line)] bg-[rgba(251,250,246,0.96)] p-4 shadow-xl shadow-black/5 backdrop-blur-xl">
           <nav className="grid gap-2">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-2xl px-4 py-3 text-sm font-medium text-[var(--color-text-soft)] transition hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-text)]"
+                className="rounded-xl px-4 py-3 text-sm font-medium text-[var(--color-text-soft)] transition hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-text)]"
                 onClick={closeMenu}
               >
                 {item.label}
@@ -112,7 +112,7 @@ export default function Header() {
             )}
             target="_blank"
             rel="noreferrer"
-            className="cta-primary mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition"
+            className="cta-primary mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition"
             onClick={closeMenu}
           >
             <Icon name="bxl-whatsapp" className="h-5 w-5" />
