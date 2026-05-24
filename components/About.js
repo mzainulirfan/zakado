@@ -1,35 +1,90 @@
-// components/About.js
-import React from "react";
+import { ORDER_LINKS, createWhatsAppLink } from "@/lib/orderLinks";
+import { SITE_META } from "@/lib/siteData";
 
-const About = () => {
+export default function About() {
   return (
-    <section id="tentang" className="bg-yellow-50 px-4 py-20">
-      <div className="mx-auto max-w-7xl">
-        <h2 className="mb-6 text-2xl font-bold text-yellow-700">
-          Tentang Kami
-        </h2>
-        <p className="mb-4 text-gray-700">
-          HampersKu adalah toko online yang menyediakan berbagai macam hampers
-          dan hadiah untuk momen spesial Anda. Kami hadir dengan layanan custom
-          dan packaging eksklusif yang membuat kado Anda lebih berkesan.
-        </p>
-        <div id="kontak" className="mt-6 grid gap-6 md:grid-cols-2">
-          <div>
-            <h3 className="mb-2 font-semibold">Kontak Kami</h3>
-            <p>Email: hampersku@example.com</p>
-            <p>WhatsApp: +62 812-3456-7890</p>
-            <p>Alamat: Jl. Mawar No. 123, Jakarta</p>
+    <section id="kontak" className="section-shell py-20">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="surface-card rounded-[32px] p-8">
+          <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
+            Tentang Zakado
+          </span>
+          <h2 className="font-display mt-3 text-4xl font-semibold text-[var(--color-text)]">
+            Studio hadiah custom yang membantu Anda memberi kesan lebih dalam.
+          </h2>
+          <p className="mt-5 text-base leading-8 text-[var(--color-text-soft)]">
+            Zakado hadir untuk orang-orang yang ingin memberikan hadiah yang
+            terasa personal, rapi, dan tidak generik. Kami fokus pada hampers
+            custom dengan sentuhan visual yang hangat serta proses order yang
+            mudah dipahami.
+          </p>
+        </div>
+
+        <div className="grid gap-6">
+          <div className="surface-card rounded-[32px] p-8">
+            <h3 className="text-2xl font-semibold text-[var(--color-text)]">
+              Hubungi kami
+            </h3>
+            <div className="mt-6 space-y-3 text-sm leading-7 text-[var(--color-text-soft)]">
+              <p>WhatsApp: {ORDER_LINKS.whatsappNumberDisplay}</p>
+              <p>Email: {SITE_META.email}</p>
+              <p>Lokasi toko: {SITE_META.storeLocation}</p>
+              <p>Area layanan: {SITE_META.serviceArea}</p>
+              <p>Jam respons: {SITE_META.responseHours}</p>
+            </div>
+            <a
+              href={createWhatsAppLink(
+                "Halo Zakado, saya ingin konsultasi pesanan."
+              )}
+              target="_blank"
+              rel="noreferrer"
+              className="cta-primary mt-6 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition"
+            >
+              <i className="bx bxl-whatsapp text-lg"></i>
+              Mulai Konsultasi
+            </a>
+            <div className="mt-4 flex flex-wrap gap-4 text-sm text-[var(--color-text-soft)]">
+              <a
+                href={ORDER_LINKS.shopee}
+                target="_blank"
+                rel="noreferrer"
+                className="transition hover:text-[var(--color-primary)]"
+              >
+                Shopee
+              </a>
+              <a
+                href={ORDER_LINKS.tiktokShop}
+                target="_blank"
+                rel="noreferrer"
+                className="transition hover:text-[var(--color-primary)]"
+              >
+                TikTok Shop
+              </a>
+            </div>
           </div>
-          <iframe
-            className="h-64 w-full rounded"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.34840858964!2d106.68942963272661!3d-6.229386698067506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e8e393da91%3A0x3027a76e352ba80!2sJakarta!5e0!3m2!1sen!2sid!4v1635491379132!5m2!1sen!2sid"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
+
+          <div className="surface-card overflow-hidden rounded-[32px] p-3">
+            <div className="rounded-[24px] border border-[var(--color-line)] bg-white p-4">
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-[var(--color-text)]">
+                  Blueshop - Zakado
+                </h3>
+                <p className="mt-1 text-sm text-[var(--color-text-soft)]">
+                  Lokasi toko di Bandung, melayani pemesanan ke seluruh Indonesia.
+                </p>
+              </div>
+              <iframe
+                title="Blueshop - Zakado"
+                src={SITE_META.mapsEmbedUrl}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-72 w-full rounded-[20px] border-0"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}

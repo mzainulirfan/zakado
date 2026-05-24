@@ -2,36 +2,34 @@
 
 import { useEffect } from "react";
 
+const sectionTitles = {
+  hero: "Zakado",
+  produk: "Zakado | Koleksi Hampers Custom",
+  "cara-order": "Zakado | Cara Order",
+  keunggulan: "Zakado | Keunggulan",
+  galeri: "Zakado | Galeri Custom",
+  testimoni: "Zakado | Testimoni Pelanggan",
+  faq: "Zakado | FAQ",
+  kontak: "Zakado | Kontak",
+};
+
 export default function ScrollTitleUpdater() {
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sectionId = entry.target.getAttribute("id");
-            if (sectionId === "hero") {
-              document.title = "Zakado";
-            } else {
-              document.title = `Zakado - ${formatTitle(sectionId)}`;
-            }
-          }
+          if (!entry.isIntersecting) return;
+          const sectionId = entry.target.getAttribute("id");
+          document.title = sectionTitles[sectionId] || "Zakado";
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.55 }
     );
 
     sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
+    return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
-
-  const formatTitle = (str) =>
-    str
-      .replace(/-/g, " ") // ganti tanda '-' jadi spasi
-      .replace(/\b\w/g, (c) => c.toUpperCase()); // kapitalisasi tiap kata
 
   return null;
 }

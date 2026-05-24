@@ -1,32 +1,78 @@
 import Image from "next/image";
+import { createOrderMessage } from "@/lib/cta";
+import { ORDER_LINKS } from "@/lib/orderLinks";
 
-export default function ProductCard({ image, title, description }) {
+export default function ProductCard({
+  image,
+  title,
+  description,
+  price,
+  tags,
+}) {
   return (
-    <div className="group overflow-hidden rounded-xl border border-gray-300 shadow hover:shadow-lg">
-      <div className="relative h-86 w-full overflow-hidden">
+    <article className="surface-card group overflow-hidden rounded-[30px]">
+      <div className="relative h-80 overflow-hidden">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-110"
+          className="object-cover transition duration-500 group-hover:scale-105"
         />
-      </div>
-
-      <div className="p-4">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-sm text-gray-600">{description}</p>
-        <div className="mt-4 flex items-center justify-between gap-2">
-          <button className="rounded bg-yellow-700 px-4 py-2 text-white transition hover:bg-yellow-800">
-            Beli
-          </button>
-          <button
-            className="text-yellow-700 transition hover:text-yellow-800"
-            title="Tambah ke Wishlist"
-          >
-            <i className="bx bx-heart text-2xl"></i>
-          </button>
+        <div className="absolute inset-x-0 top-0 flex flex-wrap gap-2 p-4">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-white/88 px-3 py-1 text-xs font-semibold text-[var(--color-accent)] backdrop-blur-sm"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
-    </div>
+
+      <div className="p-6">
+        <p className="text-sm font-semibold text-[var(--color-primary)]">
+          {price}
+        </p>
+        <h3 className="mt-3 text-2xl font-semibold text-[var(--color-text)]">
+          {title}
+        </h3>
+        <p className="mt-3 text-sm leading-7 text-[var(--color-text-soft)]">
+          {description}
+        </p>
+        <div className="mt-6 space-y-4">
+          <a
+            href={createOrderMessage(
+              `Product Card - ${title}`,
+              `Halo Zakado, saya tertarik dengan ${title}.`
+            )}
+            target="_blank"
+            rel="noreferrer"
+            className="cta-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition"
+          >
+            <i className="bx bxl-whatsapp text-lg"></i>
+            Tanya via WhatsApp
+          </a>
+          <div className="flex flex-wrap items-center gap-4 text-sm text-[var(--color-text-soft)]">
+            <a
+              href={ORDER_LINKS.shopee}
+              target="_blank"
+              rel="noreferrer"
+              className="transition hover:text-[var(--color-primary)]"
+            >
+              Shopee
+            </a>
+            <a
+              href={ORDER_LINKS.tiktokShop}
+              target="_blank"
+              rel="noreferrer"
+              className="transition hover:text-[var(--color-primary)]"
+            >
+              TikTok Shop
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
   );
 }

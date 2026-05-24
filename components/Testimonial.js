@@ -1,58 +1,37 @@
-// components/Testimonial.js
-import React from "react";
+"use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { testimonials } from "@/lib/siteData";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-const testimonials = [
-  {
-    name: "Sari",
-    city: "Bandung",
-    image:
-      "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=80",
-    text: "Hasilnya bagus banget! Teman aku suka banget sama kado wisudanya. Recommended!",
-    stars: 4.5,
-  },
-  {
-    name: "Anisa",
-    city: "Surabaya",
-    image:
-      "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=80",
-    text: "Sudah pesan 3x, selalu puas. Pengiriman juga cepat.",
-    stars: 5,
-  },
-  {
-    name: "Andi",
-    city: "Yogyakarta",
-    image:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=80",
-    text: "Pelayanan ramah dan produk sesuai ekspektasi. Terima kasih banyak!",
-    stars: 4,
-  },
-];
-
-const renderStars = (stars) => {
-  const fullStars = Math.floor(stars);
-  const halfStar = stars % 1 !== 0;
-
+function renderStars(stars) {
   return (
-    <>
-      {[...Array(fullStars)].map((_, i) => (
-        <i key={i} className="bx bxs-star"></i>
+    <div className="flex gap-1 text-lg text-amber-500">
+      {Array.from({ length: 5 }).map((_, index) => (
+        <i
+          key={`${stars}-${index}`}
+          className={index < stars ? "bx bxs-star" : "bx bx-star"}
+        ></i>
       ))}
-      {halfStar && <i className="bx bxs-star-half"></i>}
-    </>
+    </div>
   );
-};
+}
 
-const Testimonial = () => {
+export default function Testimonial() {
   return (
-    <section id="testimoni" className="mx-auto max-w-7xl px-4 py-20">
-      <h2 className="mb-8 text-center text-2xl font-bold text-yellow-700">
-        Apa Kata Mereka?
-      </h2>
+    <section id="testimoni" className="section-shell py-20">
+      <div className="mx-auto max-w-2xl text-center">
+        <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
+          Bukti kepercayaan
+        </span>
+        <h2 className="font-display mt-3 text-4xl font-semibold text-[var(--color-text)]">
+          Pengalaman pelanggan yang datang karena momen penting, lalu kembali
+          karena hasilnya.
+        </h2>
+      </div>
 
       <Swiper
         modules={[Pagination]}
@@ -60,33 +39,35 @@ const Testimonial = () => {
         spaceBetween={20}
         slidesPerView={1}
         breakpoints={{
-          640: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
+          1100: { slidesPerView: 3 },
         }}
-        className="!pb-10"
+        className="mt-10 !pb-12"
       >
-        {testimonials.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div className="rounded-lg bg-yellow-100 p-6 text-center shadow">
-              <img
-                src={item.image}
-                alt={item.name}
-                className="mx-auto mb-4 h-16 w-16 rounded-full border-2 border-yellow-500 object-cover"
-              />
-              <div className="mb-2 flex justify-center text-xl text-yellow-500">
-                {renderStars(item.stars)}
+        {testimonials.map((item) => (
+          <SwiperSlide key={item.name}>
+            <article className="surface-card h-full rounded-[30px] p-7">
+              <div className="flex items-center gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary)] text-lg font-semibold text-white">
+                  {item.name.slice(0, 1)}
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-[var(--color-text)]">
+                    {item.name}
+                  </h3>
+                  <p className="text-sm text-[var(--color-text-soft)]">
+                    {`${item.city} · ${item.role}`}
+                  </p>
+                </div>
               </div>
-              <p className="italic">"{item.text}"</p>
-              <p className="mt-3 font-semibold text-yellow-700">
-                — {item.name}, {item.city}
+              <div className="mt-5">{renderStars(item.stars)}</div>
+              <p className="mt-5 text-base leading-8 text-[var(--color-text-soft)]">
+                "{item.text}"
               </p>
-            </div>
+            </article>
           </SwiperSlide>
         ))}
       </Swiper>
     </section>
   );
-};
-
-export default Testimonial;
+}
