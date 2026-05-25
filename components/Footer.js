@@ -11,49 +11,67 @@ export default function Footer({ basePath = "" }) {
   };
 
   return (
-    <footer className="border-t border-[var(--color-line)] py-8">
-      <div className="section-shell grid gap-8 text-sm text-[var(--color-text-soft)] lg:grid-cols-[1.1fr_0.9fr]">
-        <div>
-          <p className="font-display text-2xl font-semibold text-[var(--color-text)]">
-            Zakado
-          </p>
-          <p className="mt-3 max-w-xl leading-7">
-            Hampers dan kado custom untuk momen spesial dengan jalur order cepat
-            via WhatsApp, serta opsi checkout mandiri lewat marketplace.
-          </p>
-          <p className="mt-4">© 2026 Zakado. Semua hak cipta dilindungi.</p>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2">
+    <footer className="bg-[var(--color-text)] py-14 text-[rgba(255,255,255,0.62)]">
+      <div className="section-shell">
+        <div className="grid gap-10 border-b border-white/10 pb-10 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>
-            <p className="font-semibold text-[var(--color-text)]">Navigasi</p>
-            <div className="mt-3 grid gap-2">
-              <a href={withBasePath("#produk")} className="hover:text-[var(--color-primary)]">
-                Produk
+            <p className="font-display text-3xl font-bold text-white">
+              Za<span className="text-[var(--color-primary)]">kado</span>
+            </p>
+            <p className="mt-4 max-w-sm text-sm leading-7">
+              Studio hadiah custom yang membantu Anda memberi kesan lebih dalam. Berbasis di Bandung, melayani pemesanan ke seluruh Indonesia.
+            </p>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white">Produk</p>
+            <div className="mt-4 grid gap-3 text-sm">
+              <a href={withBasePath("#produk")} className="transition hover:text-[var(--color-accent)]">
+                Hampers Wisuda
               </a>
-              <a href={withBasePath("#faq")} className="hover:text-[var(--color-primary)]">
-                FAQ
+              <a href={withBasePath("#produk")} className="transition hover:text-[var(--color-accent)]">
+                Frame Gift Box
               </a>
-              <a href={withBasePath("#kontak")} className="hover:text-[var(--color-primary)]">
+              <a href={withBasePath("#produk")} className="transition hover:text-[var(--color-accent)]">
+                Desk Calendar
+              </a>
+              <a href={withBasePath("#produk")} className="transition hover:text-[var(--color-accent)]">
+                Bulk Order
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white">Informasi</p>
+            <div className="mt-4 grid gap-3 text-sm">
+              <a href={withBasePath("#cara-order")} className="transition hover:text-[var(--color-accent)]">
+                Cara Order
+              </a>
+              <a href={withBasePath("#testimoni")} className="transition hover:text-[var(--color-accent)]">
+                Testimoni
+              </a>
+              <a href={withBasePath("#kontak")} className="transition hover:text-[var(--color-accent)]">
                 Kontak
               </a>
             </div>
           </div>
+
           <div>
-            <p className="font-semibold text-[var(--color-text)]">Order</p>
-            <div className="mt-3 grid gap-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white">Kontak</p>
+            <div className="mt-4 grid gap-3 text-sm">
               <a
                 href={ORDER_LINKS.whatsappBase}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[var(--color-primary)]"
+                className="transition hover:text-[var(--color-accent)]"
               >
-                WhatsApp {ORDER_LINKS.whatsappNumberDisplay}
+                WhatsApp
               </a>
               <a
                 href={ORDER_LINKS.shopee}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[var(--color-primary)]"
+                className="transition hover:text-[var(--color-accent)]"
               >
                 Shopee
               </a>
@@ -61,15 +79,23 @@ export default function Footer({ basePath = "" }) {
                 href={ORDER_LINKS.tiktokShop}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[var(--color-primary)]"
+                className="transition hover:text-[var(--color-accent)]"
               >
                 TikTok Shop
               </a>
-              <p className="pt-2 text-xs leading-5">
-                {`${SITE_META.storeLocation} · ${SITE_META.serviceArea}`}
-              </p>
+              <a
+                href={`mailto:${SITE_META.email}`}
+                className="transition hover:text-[var(--color-accent)]"
+              >
+                {SITE_META.email}
+              </a>
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-col gap-3 pt-8 text-sm md:flex-row md:items-center md:justify-between">
+          <p>© 2026 Zakado. Semua hak cipta dilindungi.</p>
+          <p>{`${SITE_META.storeLocation} · ${SITE_META.serviceArea}`}</p>
         </div>
       </div>
     </footer>

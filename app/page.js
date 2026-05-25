@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import MomentsStrip from "@/components/MomentsStrip";
 import Product from "@/components/Product";
 import Fitur from "@/components/Fitur";
 import Testimonial from "@/components/Testimonial";
@@ -16,6 +17,7 @@ export default function Home() {
     <main className="min-h-screen bg-[var(--color-page)] font-sans text-[var(--color-text)]">
       <Header />
       <Hero />
+      <MomentsStrip />
       <Product />
       <Fitur />
       <Testimonial />

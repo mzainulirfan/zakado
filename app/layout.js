@@ -1,12 +1,12 @@
 import "./globals.css";
 import ScrollTitleUpdater from "@/components/ScrollTitleUpdater";
 import { SITE_META } from "@/lib/siteData";
-import { Inter, Playfair_Display } from "next/font/google";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-dm-sans",
 });
 
 const playfair = Playfair_Display({
@@ -107,7 +107,7 @@ const structuredData = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="id" className={`${dmSans.variable} ${playfair.variable}`}>
       <head>
         <script
           type="application/ld+json"
